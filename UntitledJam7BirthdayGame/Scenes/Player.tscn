@@ -1,19 +1,63 @@
 [gd_scene format=3 uid="uid://dlmooys1otcjg"]
 
 [ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://TopDownController.cs" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://cbsnun0f1ym7x" path="res://Art/Player/DevPlayer.png" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://y74vby5ph77" path="res://Assets/Sprites/player_temp_sheet.png" id="2_kyqiw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
+atlas = ExtResource("2_kyqiw")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dewec"]
+atlas = ExtResource("2_kyqiw")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ixxa"]
+atlas = ExtResource("2_kyqiw")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2yo7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gntrk")
+}],
+"loop": 1,
+"name": &"Down_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dewec")
+}],
+"loop": 1,
+"name": &"Side_Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ixxa")
+}],
+"loop": 1,
+"name": &"Up_Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
-size = Vector2(16, 16)
+size = Vector2(68, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=137148717]
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1758948941]
-texture = ExtResource("1_rpqav")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=434648724]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_w2yo7")
+animation = &"Down_Idle"
+autoplay = "Down_Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583321580]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_yl4b0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=446371231]
+position = Vector2(0, -45)
