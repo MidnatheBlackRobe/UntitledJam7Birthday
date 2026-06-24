@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dlmooys1otcjg"]
 
-[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://TopDownController.cs" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://Scripts/TopDownController.cs" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://y74vby5ph77" path="res://Assets/Sprites/player_temp_sheet.png" id="2_kyqiw"]
-[ext_resource type="Script" uid="uid://ckgk57klncwfd" path="res://Scenes/TopDownAnimations.cs" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://ckgk57klncwfd" path="res://Scripts/TopDownAnimations.cs" id="3_gntrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_kyqiw")

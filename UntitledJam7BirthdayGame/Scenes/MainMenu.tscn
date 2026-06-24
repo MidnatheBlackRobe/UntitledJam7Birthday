@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dxs8ea2ma4rni"]
+
+[ext_resource type="Script" uid="uid://bu4jkaqonps1t" path="res://Scripts/MainMenu.cs" id="1_tt5f1"]
+[ext_resource type="PackedScene" uid="uid://wsontnf4v4rt" path="res://Scenes/TestLevel.tscn" id="2_853f1"]
+
+[node name="MainMenu" type="Control" unique_id=573688494 node_paths=PackedStringArray("startButton", "quitButton")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tt5f1")
+startScene = ExtResource("2_853f1")
+startButton = NodePath("VBoxContainer/Start")
+quitButton = NodePath("VBoxContainer/Quit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1968618894]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -24.0
+offset_right = 102.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=46215515]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=851571012]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="Label" type="Label" parent="." unique_id=644061564]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -20.0
+offset_top = -106.5
+offset_right = 20.0
+offset_bottom = -83.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "<Game Title>"
