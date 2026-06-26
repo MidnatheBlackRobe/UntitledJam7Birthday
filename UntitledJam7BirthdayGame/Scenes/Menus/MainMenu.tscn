@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bheiw0epx3a6f"]
+
+[ext_resource type="Script" uid="uid://bu4jkaqonps1t" path="res://Scripts/Menus/MainMenu.cs" id="1_b42ut"]
+[ext_resource type="Script" uid="uid://dsgvhrejetbm4" path="res://Scripts/Menus/MenuElements/SwitchSceneButton.cs" id="2_tfrft"]
+[ext_resource type="Script" uid="uid://2vvkfhnj2pa5" path="res://Scripts/Menus/MenuElements/QuitButton.cs" id="4_uv623"]
+
+[node name="MainMenu" type="VBoxContainer" unique_id=1968618894 node_paths=PackedStringArray("SettingsButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -86.0
+offset_right = 152.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b42ut")
+SettingsButton = NodePath("SettingsButton")
+
+[node name="Title" type="Label" parent="." unique_id=644061564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "<Game Title>"
+
+[node name="Control" type="Control" parent="." unique_id=848083797]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="." unique_id=46215515]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Start Game"
+script = ExtResource("2_tfrft")
+ScenePath = "uid://wsontnf4v4rt"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=1804381242]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="." unique_id=851571012]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Quit"
+script = ExtResource("4_uv623")

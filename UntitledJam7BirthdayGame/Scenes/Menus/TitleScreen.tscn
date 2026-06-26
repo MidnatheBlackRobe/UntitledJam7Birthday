@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dxs8ea2ma4rni"]
+
+[ext_resource type="Script" uid="uid://c3jaoc8rasbxv" path="res://Scripts/Menus/TitleScreen.cs" id="1_rfquq"]
+[ext_resource type="PackedScene" uid="uid://ddylnbo6nwfp2" path="res://Scenes/Menus/SettingsMenu.tscn" id="3_hqtmt"]
+[ext_resource type="PackedScene" uid="uid://bheiw0epx3a6f" path="res://Scenes/Menus/MainMenu.tscn" id="3_rfquq"]
+
+[node name="TitleScreen" type="Control" unique_id=573688494]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfquq")
+
+[node name="MainMenu" parent="." unique_id=1000448266 instance=ExtResource("3_rfquq")]
+layout_mode = 1
+offset_top = -113.0
+offset_bottom = 113.0
+
+[node name="SettingsMenu" parent="." unique_id=1538687518 instance=ExtResource("3_hqtmt")]
+visible = false
+layout_mode = 1
+offset_left = -150.0
+offset_right = 150.0

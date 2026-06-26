@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://ddylnbo6nwfp2"]
+
+[ext_resource type="Script" uid="uid://cog8nq1drggbb" path="res://Scripts/Menus/SettingsMenu.cs" id="1_gl23i"]
+[ext_resource type="Script" uid="uid://hc6qjoj67m0r" path="res://Scripts/Menus/MenuElements/VolumeSlider.cs" id="2_gl23i"]
+[ext_resource type="Script" uid="uid://2swpp6s6tv6o" path="res://Scripts/Menus/MenuElements/FullscreenCheckBox.cs" id="3_leijj"]
+
+[sub_resource type="FontVariation" id="FontVariation_enyfb"]
+spacing_top = -8
+spacing_bottom = 2
+
+[node name="SettingsMenu" type="VBoxContainer" unique_id=1538687518 node_paths=PackedStringArray("BackButton")]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -150.5
+offset_right = 127.5
+offset_bottom = 150.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+script = ExtResource("1_gl23i")
+BackButton = NodePath("HBoxContainer/BackButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=598474978]
+layout_mode = 2
+
+[node name="SettingsLabel" type="Label" parent="HBoxContainer" unique_id=1007565984]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_enyfb")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="BackButton" type="Button" parent="HBoxContainer" unique_id=2059542138]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+text = "Return"
+
+[node name="VolumeLabel" type="Label" parent="." unique_id=2129858375]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Volume"
+
+[node name="VolumeSettings" type="VBoxContainer" parent="." unique_id=1543311886]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="VolumeSettings" unique_id=92153541]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VolumeSettings" unique_id=2141668131]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_gl23i")
+
+[node name="MusicLabel" type="Label" parent="VolumeSettings" unique_id=933841517]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="VolumeSettings" unique_id=836523499]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_gl23i")
+audioBusID = 1
+
+[node name="SoundEffectsLabel" type="Label" parent="VolumeSettings" unique_id=1905496437]
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="SoundEffectsSlider" type="HSlider" parent="VolumeSettings" unique_id=2099059244]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_gl23i")
+audioBusID = 2
+
+[node name="DisplayLabel" type="Label" parent="." unique_id=1337027508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Display"
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="." unique_id=1345099878]
+layout_mode = 2
+text = "Fullscreen"
+script = ExtResource("3_leijj")

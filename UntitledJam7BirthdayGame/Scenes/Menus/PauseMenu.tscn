@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://cmgsydu10d4pk"]
+
+[ext_resource type="Script" uid="uid://dj0ecneygc0bd" path="res://Scripts/Menus/PauseMenu.cs" id="1_cvc81"]
+[ext_resource type="Script" uid="uid://dsgvhrejetbm4" path="res://Scripts/Menus/MenuElements/SwitchSceneButton.cs" id="2_rqyw7"]
+[ext_resource type="Script" uid="uid://2vvkfhnj2pa5" path="res://Scripts/Menus/MenuElements/QuitButton.cs" id="4_cvc81"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy2kj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa0i8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdb2v"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43uqb"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="PauseMenu" type="VBoxContainer" unique_id=1736015712 node_paths=PackedStringArray("SettingsButton", "ResumeButton")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -134.5
+offset_right = 100.0
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_cvc81")
+SettingsButton = NodePath("SettingsButton")
+ResumeButton = NodePath("ResumeButton")
+
+[node name="PauseLabel" type="Label" parent="." unique_id=242386181]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Pause"
+
+[node name="Control" type="Control" parent="." unique_id=196961658]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResumeButton" type="Button" parent="." unique_id=1860483834]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_oy2kj")
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=31269965]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_sa0i8")
+text = "Settings"
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=272286148]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdb2v")
+text = "Main Menu"
+script = ExtResource("2_rqyw7")
+ScenePath = "uid://dxs8ea2ma4rni"
+
+[node name="QuitButton" type="Button" parent="." unique_id=1254398222]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_43uqb")
+text = "Quit"
+script = ExtResource("4_cvc81")

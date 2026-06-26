@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dr1b8xfpcxp0a"]
+
+[ext_resource type="Script" uid="uid://bxg2b4fg50dy4" path="res://Scripts/Menus/PausePanel.cs" id="1_3cm3c"]
+[ext_resource type="PackedScene" uid="uid://cmgsydu10d4pk" path="res://Scenes/Menus/PauseMenu.tscn" id="1_jxcso"]
+[ext_resource type="PackedScene" uid="uid://ddylnbo6nwfp2" path="res://Scenes/Menus/SettingsMenu.tscn" id="2_3cm3c"]
+
+[node name="PausePanel" type="Control" unique_id=1898800224 node_paths=PackedStringArray("pauseMenu")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3cm3c")
+pauseMenu = NodePath("PauseMenu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1036094229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2784314)
+
+[node name="PauseMenu" parent="." unique_id=1736015712 instance=ExtResource("1_jxcso")]
+layout_mode = 1
+offset_top = -120.5
+offset_bottom = 120.5
+
+[node name="SettingsMenu" parent="." unique_id=1538687518 instance=ExtResource("2_3cm3c")]
+visible = false
+layout_mode = 1
+offset_left = -150.0
+offset_top = -147.5
+offset_right = 150.0
+offset_bottom = 147.5
+backMenuName = "PauseMenu"
