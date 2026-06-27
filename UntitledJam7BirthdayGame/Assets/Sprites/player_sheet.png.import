@@ -2,16 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfjwo7umph1aq"
-path="res://.godot/imported/DevGroundTile.png-49e46a5cf2146a66cc995da5caa04851.ctex"
+<<<<<<< HEAD
+uid="uid://bxrxfj3l6cemr"
+=======
+uid="uid://bqjk60ekaswxq"
+>>>>>>> 9e2e9ca3ba1e6b1cf2afc6c3c0f7058857f5ce76
+path="res://.godot/imported/player_sheet.png-ee71227855b1e91aca79ec7b7aea086c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Tilesets/DevGroundTile.png"
-dest_files=["res://.godot/imported/DevGroundTile.png-49e46a5cf2146a66cc995da5caa04851.ctex"]
+source_file="res://Assets/Sprites/player_sheet.png"
+dest_files=["res://.godot/imported/player_sheet.png-ee71227855b1e91aca79ec7b7aea086c.ctex"]
 
 [params]
 
