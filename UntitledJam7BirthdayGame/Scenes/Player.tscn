@@ -542,6 +542,7 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
 animation = &"Death"
 autoplay = "Down_Idle"
+offset = Vector2(0, -48)
 script = ExtResource("3_dewec")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1583321580]
