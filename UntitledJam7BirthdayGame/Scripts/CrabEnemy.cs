@@ -35,7 +35,7 @@ public partial class CrabEnemy : RigidBody2D
 		playerDetection.BodyEntered += DetectionEntered;
 		playerDetection.BodyExited += DetectionExited;
 
-		hitBox.BodyEntered += OnHit;
+		hitBox.AreaEntered += OnHit;
 
 		UpdateAnimation();
 	}
@@ -114,11 +114,12 @@ public partial class CrabEnemy : RigidBody2D
 	{
 		SetState("Hit");
 		health -= 1f;
-		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
+		Vector2 knockback = (position - Position).Normalized() * DAMAGE_KNOCKBACK;
 		LinearVelocity += knockback;
 		if (health <= 0)
 		{
 			_ = OnDeath();
+			return;
 		}
 		await ToSignal(GetTree().CreateTimer(DAMAGE_TIME), SceneTreeTimer.SignalName.Timeout);
 		SetState("Angry");
@@ -137,13 +138,13 @@ public partial class CrabEnemy : RigidBody2D
 		ProcessMode = ProcessModeEnum.Disabled;
 	}
 
-	private void OnHit(Node2D body)
+	private void OnHit(Node2D area)
 	{
 		GD.Print("Hit");
-		if (body is Player player)
+		if (area is PlayerHurtBox playerHurtBox)
 		{
 			GD.Print("HitPlayer");
-			player.Damage(Position);
+			playerHurtBox.Damage(Position);
 		}
 	}
 }

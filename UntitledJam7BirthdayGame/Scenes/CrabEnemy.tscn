@@ -201,7 +201,7 @@ shape = SubResource("CapsuleShape2D_dewec")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
 animation = &"Angry"
-frame_progress = 0.19754796
+frame_progress = 0.49836367
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(140, 0)
@@ -216,7 +216,7 @@ shape = SubResource("CircleShape2D_sc3yg")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1792117966]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=558568382]
 position = Vector2(-1, -3)

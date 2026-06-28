@@ -1,6 +1,7 @@
 using System;
 using System.Data.Common;
 using System.Runtime.Serialization.Formatters;
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Player : CharacterBody2D
@@ -9,23 +10,30 @@ public partial class Player : CharacterBody2D
 	PlayerAnimation playerAnimation;
 	[Export]
 	PlayerWeapon playerWeapon;
+	[Export]
+	PlayerHurtBox playerHurtBox;
 
 	string direction = "Down";
+	string state = "Idle";
+
+	public override void _Ready()
+	{
+		playerHurtBox.Damaged += Damage;
+	}
+
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
 		PlayerMovement(delta);
-		playerAnimation.Velocity = Velocity;
-		playerAnimation.SetDirection(direction);
+		MoveAndSlide();
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event.IsActionPressed("attack"))
+		if (@event.IsActionPressed("attack") && state is not "Attack" or "Hit" or "Death")
 		{
-			_ = playerAnimation.Attack();
-			_ = playerWeapon.Attack(direction);
+			_ = Attack();
 		}
 	}
 
@@ -37,19 +45,22 @@ public partial class Player : CharacterBody2D
 
 	private void PlayerMovement(double delta)
 	{
+		if (state is "Attack" or "Hit" or "Death") return;
+
 		Vector2 moveInput = Input.GetVector("left", "right", "up", "down"); ;
 
 		if (moveInput == Vector2.Zero)
 		{
+			SetState("Idle");
 			if (Velocity == Vector2.Zero) return;
 			if (Velocity.Length() <= brakingFriction * (float)delta)
 			{
 				Velocity = Vector2.Zero;
-				MoveAndSlide();
 				return;
 			}
 		}
 
+		SetState("Walk");
 		Velocity += (moveInput - Velocity.Normalized()) * brakingFriction * (float)delta;
 
 		Velocity += moveInput * acceleration * (float)delta;
@@ -65,21 +76,52 @@ public partial class Player : CharacterBody2D
 			direction = Velocity.Y <= 0 ? "Up" : "Down";
 		}
 
-		MoveAndSlide();
-
 		lastMoveInput = moveInput;
 	}
 
 	private const float MAX_HEALTH = 1f;
 	private const float HEALTH_STEP = 0.25f;
+	private const float DAMAGE_KNOCKBACK = 200f;
+	private const float DAMAGE_TIME = 0.25f;
 	private float health = MAX_HEALTH;
 	public Action<float> healthChanged;
 	public Action isDead;
 
-	public void Damage(Vector2 position)
+	private void Damage(Vector2 position)
+	{
+		_ = DamageRoutine(position);
+	}
+
+	private async Task DamageRoutine(Vector2 position)
 	{
 		health -= HEALTH_STEP;
 		healthChanged?.Invoke(health);
 		if (health <= 0) isDead?.Invoke();
+		SetState("Hit");
+		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
+		Velocity += knockback;
+		await ToSignal(GetTree().CreateTimer(DAMAGE_TIME), SceneTreeTimer.SignalName.Timeout);
+		SetState("Idle");
+	}
+
+	private const float ATTACK_TIME = .85f;
+
+	public async Task Attack()
+	{
+		SetState("Attack");
+		await playerWeapon.Attack(direction);
+		SetState("Idle");
+	}
+
+	private void SetState(string state)
+	{
+		this.state = state;
+		playerAnimation.UpdateAnimation(state, direction);
+	}
+
+	private void SetDirection(string direction)
+	{
+		this.direction = direction;
+		playerAnimation.UpdateAnimation(state, direction);
 	}
 }
