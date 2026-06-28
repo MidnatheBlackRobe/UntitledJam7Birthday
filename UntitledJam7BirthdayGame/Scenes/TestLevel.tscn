@@ -108,6 +108,7 @@ tile_set = SubResource("TileSet_w2yo7")
 
 [node name="Player" parent="." unique_id=137148717 instance=ExtResource("2_5ms4e")]
 position = Vector2(577, 323)
+collision_layer = 2
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1892181191]
 stream = SubResource("AudioStreamInteractive_sc3yg")
@@ -149,4 +150,4 @@ script = ExtResource("13_cs0qk")
 
 [node name="CrabEnemy" parent="." unique_id=762200399 instance=ExtResource("14_ucv7y")]
 position = Vector2(924, 433)
-gravity_scale = 0.0
+collision_layer = 6

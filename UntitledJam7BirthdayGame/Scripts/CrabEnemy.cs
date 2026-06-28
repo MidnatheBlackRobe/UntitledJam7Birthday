@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class CrabEnemy : RigidBody2D
 {
@@ -7,6 +8,9 @@ public partial class CrabEnemy : RigidBody2D
 
 	[Export]
 	AnimatedSprite2D crabAnimation;
+
+	[Export]
+	Area2D hitBox;
 
 	[Export]
 	Area2D playerDetection;
@@ -31,8 +35,19 @@ public partial class CrabEnemy : RigidBody2D
 		playerDetection.BodyEntered += DetectionEntered;
 		playerDetection.BodyExited += DetectionExited;
 
+		hitBox.BodyEntered += OnHit;
+
 		UpdateAnimation();
 	}
+
+	public override void _ExitTree()
+	{
+		playerDetection.BodyEntered -= DetectionEntered;
+		playerDetection.BodyExited -= DetectionExited;
+
+		hitBox.AreaEntered -= OnHit;
+	}
+
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
@@ -58,7 +73,7 @@ public partial class CrabEnemy : RigidBody2D
 		this.state = state;
 		UpdateAnimation();
 
-		if (state == "Calm")
+		if (state == "Calm" || state == "Death")
 		{
 			LinearVelocity = Vector2.Zero;
 		}
@@ -92,15 +107,43 @@ public partial class CrabEnemy : RigidBody2D
 		crabAnimation.Play(state);
 	}
 
-	public void Damage()
+	const float DAMAGE_KNOCKBACK = 200f;
+	const float DAMAGE_TIME = 0.25f;
+
+	public async Task Damage(Vector2 position)
 	{
+		SetState("Hit");
 		health -= 1f;
-		if (health <= 0) OnDeath();
+		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
+		LinearVelocity += knockback;
+		if (health <= 0)
+		{
+			_ = OnDeath();
+		}
+		await ToSignal(GetTree().CreateTimer(DAMAGE_TIME), SceneTreeTimer.SignalName.Timeout);
+		SetState("Angry");
 	}
 
 	Action crabDied;
-	public void OnDeath()
+	const float DEATH_TIME = 0.85f;
+
+	public async Task OnDeath()
 	{
+		hitBox.ProcessMode = ProcessModeEnum.Disabled;
 		crabDied?.Invoke();
+		SetState("Death");
+		await ToSignal(GetTree().CreateTimer(DEATH_TIME), SceneTreeTimer.SignalName.Timeout);
+		Hide();
+		ProcessMode = ProcessModeEnum.Disabled;
+	}
+
+	private void OnHit(Node2D body)
+	{
+		GD.Print("Hit");
+		if (body is Player player)
+		{
+			GD.Print("HitPlayer");
+			player.Damage(Position);
+		}
 	}
 }

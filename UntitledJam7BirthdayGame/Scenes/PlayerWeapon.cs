@@ -45,7 +45,7 @@ public partial class PlayerWeapon : Area2D
 	{
 		if (hit is CrabEnemy crabEnemy)
 		{
-			crabEnemy.Damage();
+			crabEnemy.Damage(Position);
 		}
 	}
 }

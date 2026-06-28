@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tixn3")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Death",
 "speed": 7.0
 }, {
@@ -179,14 +179,16 @@ animations = [{
 radius = 140.08926
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4td5p"]
-radius = 22.0
-height = 70.0
+radius = 20.0
+height = 64.0
 
-[node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "playerDetection", "playerSight")]
+[node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "hitBox", "playerDetection", "playerSight")]
 collision_layer = 4
+gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_4oagd")
 crabAnimation = NodePath("CrabAnimation")
+hitBox = NodePath("HitBox")
 playerDetection = NodePath("PlayerDetection")
 playerSight = NodePath("PlayerSight")
 
@@ -199,8 +201,7 @@ shape = SubResource("CapsuleShape2D_dewec")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
 animation = &"Angry"
-frame_progress = 0.90991914
-animation = &"Death"
+frame_progress = 0.19754796
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(140, 0)
@@ -214,6 +215,8 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_sc3yg")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1792117966]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=558568382]
 position = Vector2(-1, -3)

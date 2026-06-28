@@ -26,7 +26,6 @@ public partial class Player : CharacterBody2D
 		{
 			_ = playerAnimation.Attack();
 			_ = playerWeapon.Attack(direction);
-			Damage();
 		}
 	}
 
@@ -77,7 +76,7 @@ public partial class Player : CharacterBody2D
 	public Action<float> healthChanged;
 	public Action isDead;
 
-	private void Damage()
+	public void Damage(Vector2 position)
 	{
 		health -= HEALTH_STEP;
 		healthChanged?.Invoke(health);
