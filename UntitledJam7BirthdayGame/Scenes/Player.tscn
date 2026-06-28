@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dlmooys1otcjg"]
 
-[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://Scripts/TopDownController.cs" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://Scripts/Player.cs" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bc74xe083xj52" path="res://Assets/Sprites/player_sheet.png" id="2_dewec"]
-[ext_resource type="Script" uid="uid://ckgk57klncwfd" path="res://Scripts/TopDownAnimations.cs" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://2lcfwaq1w0he" path="res://Scenes/PlayerAnimation.cs" id="3_dewec"]
+[ext_resource type="Script" uid="uid://5va6lry0oij7" path="res://Scenes/TopDownAnimation.cs" id="4_5ixxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teras"]
 atlas = ExtResource("2_dewec")
@@ -220,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fvoow")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Down_Attack",
 "speed": 7.0
 }, {
@@ -298,7 +299,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_awd2i")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Side_Attack",
 "speed": 7.0
 }, {
@@ -358,7 +359,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u4y2r")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Up_Attack",
 "speed": 7.0
 }, {
@@ -412,17 +413,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
 size = Vector2(68, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=137148717]
+[node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation")]
 motion_mode = 1
 script = ExtResource("1_kyqiw")
+playerAnimation = NodePath("PlayerAnimation")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=434648724]
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724 node_paths=PackedStringArray("topDownAnimations")]
 position = Vector2(0, -48)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
 animation = &"Up_Attack"
 autoplay = "Down_Idle"
-frame_progress = 0.61914617
-script = ExtResource("3_gntrk")
+script = ExtResource("3_dewec")
+topDownAnimations = NodePath("TopDownAnimation")
+
+[node name="TopDownAnimation" type="Node2D" parent="PlayerAnimation" unique_id=1959283738]
+script = ExtResource("4_5ixxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583321580]
 position = Vector2(0, -16)

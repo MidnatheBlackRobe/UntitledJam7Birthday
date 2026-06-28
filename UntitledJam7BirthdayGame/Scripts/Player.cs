@@ -2,13 +2,25 @@ using System.Data.Common;
 using System.Runtime.Serialization.Formatters;
 using Godot;
 
-public partial class TopDownController : CharacterBody2D
+public partial class Player : CharacterBody2D
 {
+	[Export]
+	PlayerAnimation playerAnimation;
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
 		PlayerMovement(delta);
+		playerAnimation.velocity = Velocity;
+	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("attack"))
+		{
+			_ = playerAnimation.Attack();
+			GD.Print("Hi");
+		}
 	}
 
 	float maxSpeed = 150f;
