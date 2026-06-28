@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://gss1svpmtv6" path="res://Scripts/CrabEnemy.cs" id="1_4oagd"]
 [ext_resource type="Texture2D" uid="uid://c1uerawb1p5vu" path="res://Assets/Sprites/enemy_crab_01_sheet.png" id="1_fbe0a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
-size = Vector2(70, 33)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dewec"]
+radius = 15.0
+height = 56.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oagd"]
 atlas = ExtResource("1_fbe0a")
@@ -83,7 +84,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sc3yg"]
-radius = 112.00446
+radius = 140.08926
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4td5p"]
+radius = 22.0
+height = 70.0
 
 [node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "playerDetection", "playerSight")]
 collision_layer = 4
@@ -93,17 +98,19 @@ crabAnimation = NodePath("CrabAnimation")
 playerDetection = NodePath("PlayerDetection")
 playerSight = NodePath("PlayerSight")
 
-[node name="HitBox" type="CollisionShape2D" parent="." unique_id=1681159941]
-shape = SubResource("RectangleShape2D_yl4b0")
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1681159941]
+position = Vector2(0, 7)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dewec")
 
 [node name="CrabAnimation" type="AnimatedSprite2D" parent="." unique_id=982817329]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
-animation = &"Calm"
-frame_progress = 0.61648864
+animation = &"Angry"
+frame_progress = 0.90991914
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
-target_position = Vector2(112, 0)
+target_position = Vector2(140, 0)
 collision_mask = 2
 
 [node name="PlayerDetection" type="Area2D" parent="." unique_id=57782221]
@@ -112,3 +119,10 @@ collision_mask = 2
 
 [node name="PlayerDetectionArea" type="CollisionShape2D" parent="PlayerDetection" unique_id=729708165]
 shape = SubResource("CircleShape2D_sc3yg")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1792117966]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=558568382]
+position = Vector2(-1, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4td5p")

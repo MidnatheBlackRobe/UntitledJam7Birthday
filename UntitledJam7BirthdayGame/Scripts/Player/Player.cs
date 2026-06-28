@@ -7,12 +7,17 @@ public partial class Player : CharacterBody2D
 {
 	[Export]
 	PlayerAnimation playerAnimation;
+	[Export]
+	PlayerWeapon playerWeapon;
+
+	string direction = "Down";
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
 		PlayerMovement(delta);
-		playerAnimation.velocity = Velocity;
+		playerAnimation.Velocity = Velocity;
+		playerAnimation.SetDirection(direction);
 	}
 
 	public override void _Input(InputEvent @event)
@@ -20,6 +25,7 @@ public partial class Player : CharacterBody2D
 		if (@event.IsActionPressed("attack"))
 		{
 			_ = playerAnimation.Attack();
+			_ = playerWeapon.Attack(direction);
 			Damage();
 		}
 	}
@@ -50,6 +56,15 @@ public partial class Player : CharacterBody2D
 		Velocity += moveInput * acceleration * (float)delta;
 
 		Velocity = Velocity.LimitLength(maxSpeed);
+
+		if (Mathf.Abs(Velocity.X) > Mathf.Abs(Velocity.Y))
+		{
+			direction = Velocity.X <= 0 ? "Left" : "Right";
+		}
+		else
+		{
+			direction = Velocity.Y <= 0 ? "Up" : "Down";
+		}
 
 		MoveAndSlide();
 

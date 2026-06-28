@@ -1,32 +1,34 @@
 using Godot;
+using System;
 using System.Threading.Tasks;
 
 public partial class PlayerAnimation : AnimatedSprite2D
 {
-	public Vector2 velocity { private get; set; } = Vector2.Zero;
+	public Vector2 Velocity { private get; set; } = Vector2.Zero;
+
+	private string direction = "Down";
 
 	[Export]
 	TopDownAnimation topDownAnimations;
 
 	string state = "Idle";
-	string direction = "Down";
+
+	Action<string> changeDirection;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		topDownAnimations.changeMoveState += SetState;
-		topDownAnimations.changeDirection += SetDirection;
 	}
 
 	public override void _ExitTree()
 	{
 		topDownAnimations.changeMoveState -= SetState;
-		topDownAnimations.changeDirection -= SetDirection;
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		topDownAnimations.velocity = velocity;
+		topDownAnimations.velocity = Velocity;
 	}
 
 
@@ -36,8 +38,9 @@ public partial class PlayerAnimation : AnimatedSprite2D
 		UpdateAnimation();
 	}
 
-	private void SetDirection(string direction)
+	public void SetDirection(string direction)
 	{
+		changeDirection?.Invoke(direction);
 		if (direction is "Left" or "Right")
 		{
 			this.direction = "Side";

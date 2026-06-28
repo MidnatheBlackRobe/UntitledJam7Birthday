@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bc74xe083xj52" path="res://Assets/Sprites/player_sheet.png" id="2_dewec"]
 [ext_resource type="Script" uid="uid://2lcfwaq1w0he" path="res://Scripts/Player/PlayerAnimation.cs" id="3_dewec"]
 [ext_resource type="Script" uid="uid://5va6lry0oij7" path="res://Scripts/Player/TopDownAnimation.cs" id="4_5ixxa"]
+[ext_resource type="Script" uid="uid://3tu6grsshhxh" path="res://Scenes/PlayerWeapon.cs" id="5_5ixxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teras"]
 atlas = ExtResource("2_dewec")
@@ -410,28 +411,80 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
-size = Vector2(49, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4oagd"]
+radius = 12.0
+height = 44.0
 
-[node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4td5p"]
+radius = 16.0
+height = 34.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4td5p"]
+size = Vector2(20, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc3yg"]
+size = Vector2(23.25, 17)
+
+[node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation", "playerWeapon")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 playerAnimation = NodePath("PlayerAnimation")
+playerWeapon = NodePath("PlayerWeapon")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724 node_paths=PackedStringArray("topDownAnimations")]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
-animation = &"Up_Attack"
+animation = &"Down_Attack"
 autoplay = "Down_Idle"
+frame = 2
+frame_progress = 1.0
 script = ExtResource("3_dewec")
 topDownAnimations = NodePath("TopDownAnimation")
 
 [node name="TopDownAnimation" type="Node2D" parent="PlayerAnimation" unique_id=1959283738]
 script = ExtResource("4_5ixxa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583321580]
-shape = SubResource("RectangleShape2D_yl4b0")
+[node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1583321580]
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4oagd")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=446371231]
 position = Vector2(0, -29)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1048658261]
+position = Vector2(0, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1915046291]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_4td5p")
+
+[node name="PlayerWeapon" type="Area2D" parent="." unique_id=767191729 node_paths=PackedStringArray("leftHitBox", "upHitBox", "rightHitBox", "downHitBox")]
+position = Vector2(0, -5)
+collision_mask = 4
+script = ExtResource("5_5ixxa")
+leftHitBox = NodePath("Left")
+upHitBox = NodePath("Up")
+rightHitBox = NodePath("Right")
+downHitBox = NodePath("Down")
+
+[node name="Right" type="CollisionShape2D" parent="PlayerWeapon" unique_id=1949925362]
+position = Vector2(30, -21)
+shape = SubResource("RectangleShape2D_4td5p")
+disabled = true
+
+[node name="Left" type="CollisionShape2D" parent="PlayerWeapon" unique_id=691402303]
+position = Vector2(-30, -21.5)
+shape = SubResource("RectangleShape2D_4td5p")
+disabled = true
+
+[node name="Down" type="CollisionShape2D" parent="PlayerWeapon" unique_id=516347362]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_sc3yg")
+disabled = true
+
+[node name="Up" type="CollisionShape2D" parent="PlayerWeapon" unique_id=1184115655]
+position = Vector2(0, -44)
+shape = SubResource("RectangleShape2D_sc3yg")
+disabled = true
