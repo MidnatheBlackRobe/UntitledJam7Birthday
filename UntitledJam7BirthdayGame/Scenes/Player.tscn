@@ -6,6 +6,42 @@
 [ext_resource type="Script" uid="uid://5va6lry0oij7" path="res://Scripts/Player/TopDownAnimation.cs" id="4_5ixxa"]
 [ext_resource type="Script" uid="uid://3tu6grsshhxh" path="res://Scenes/PlayerWeapon.cs" id="5_5ixxa"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddly5"]
+atlas = ExtResource("2_dewec")
+region = Rect2(0, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omi2y"]
+atlas = ExtResource("2_dewec")
+region = Rect2(96, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75iyv"]
+atlas = ExtResource("2_dewec")
+region = Rect2(192, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrofn"]
+atlas = ExtResource("2_dewec")
+region = Rect2(288, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gg6q"]
+atlas = ExtResource("2_dewec")
+region = Rect2(384, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wenux"]
+atlas = ExtResource("2_dewec")
+region = Rect2(480, 864, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy33c"]
+atlas = ExtResource("2_dewec")
+region = Rect2(0, 960, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ppb"]
+atlas = ExtResource("2_dewec")
+region = Rect2(96, 960, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k22kr"]
+atlas = ExtResource("2_dewec")
+region = Rect2(192, 960, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_teras"]
 atlas = ExtResource("2_dewec")
 region = Rect2(0, 672, 96, 96)
@@ -17,6 +53,10 @@ region = Rect2(96, 672, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvoow"]
 atlas = ExtResource("2_dewec")
 region = Rect2(192, 672, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbv6f"]
+atlas = ExtResource("2_dewec")
+region = Rect2(288, 768, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
 atlas = ExtResource("2_dewec")
@@ -102,6 +142,10 @@ region = Rect2(384, 672, 96, 96)
 atlas = ExtResource("2_dewec")
 region = Rect2(480, 672, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp15a"]
+atlas = ExtResource("2_dewec")
+region = Rect2(480, 768, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_dewec")
 region = Rect2(0, 192, 96, 96)
@@ -162,6 +206,10 @@ region = Rect2(96, 768, 96, 96)
 atlas = ExtResource("2_dewec")
 region = Rect2(192, 768, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fayk8"]
+atlas = ExtResource("2_dewec")
+region = Rect2(384, 768, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
 atlas = ExtResource("2_dewec")
 region = Rect2(0, 288, 96, 96)
@@ -214,6 +262,38 @@ region = Rect2(480, 480, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ddly5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omi2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75iyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrofn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gg6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wenux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy33c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ppb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k22kr")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_teras")
 }, {
 "duration": 1.0,
@@ -224,6 +304,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Down_Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbv6f")
+}],
+"loop": 1,
+"name": &"Down_Hit",
 "speed": 7.0
 }, {
 "frames": [{
@@ -306,6 +394,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vp15a")
+}],
+"loop": 1,
+"name": &"Side_Hit",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gntrk")
 }, {
 "duration": 1.0,
@@ -362,6 +458,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Up_Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fayk8")
+}],
+"loop": 1,
+"name": &"Up_Hit",
 "speed": 7.0
 }, {
 "frames": [{
@@ -426,7 +530,7 @@ size = Vector2(20, 19)
 size = Vector2(23.25, 17)
 
 [node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation", "playerWeapon")]
-collision_layer = 2
+collision_layer = 3
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 playerAnimation = NodePath("PlayerAnimation")
