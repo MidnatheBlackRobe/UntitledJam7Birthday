@@ -1,3 +1,4 @@
+using System;
 using System.Data.Common;
 using System.Runtime.Serialization.Formatters;
 using Godot;
@@ -19,7 +20,7 @@ public partial class Player : CharacterBody2D
 		if (@event.IsActionPressed("attack"))
 		{
 			_ = playerAnimation.Attack();
-			GD.Print("Hi");
+			Damage();
 		}
 	}
 
@@ -53,5 +54,18 @@ public partial class Player : CharacterBody2D
 		MoveAndSlide();
 
 		lastMoveInput = moveInput;
+	}
+
+	private const float MAX_HEALTH = 1f;
+	private const float HEALTH_STEP = 0.25f;
+	private float health = MAX_HEALTH;
+	public Action<float> healthChanged;
+	public Action isDead;
+
+	private void Damage()
+	{
+		health -= HEALTH_STEP;
+		healthChanged?.Invoke(health);
+		if (health <= 0) isDead?.Invoke();
 	}
 }

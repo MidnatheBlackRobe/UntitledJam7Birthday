@@ -411,15 +411,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
-size = Vector2(68, 32)
+size = Vector2(49, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation")]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 playerAnimation = NodePath("PlayerAnimation")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724 node_paths=PackedStringArray("topDownAnimations")]
-position = Vector2(0, -48)
+position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
 animation = &"Up_Attack"
 autoplay = "Down_Idle"
@@ -430,8 +431,7 @@ topDownAnimations = NodePath("TopDownAnimation")
 script = ExtResource("4_5ixxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583321580]
-position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_yl4b0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=446371231]
-position = Vector2(0, -45)
+position = Vector2(0, -29)

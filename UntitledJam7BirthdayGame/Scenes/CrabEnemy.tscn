@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cmr680jnitpjh"]
+
+[ext_resource type="Script" uid="uid://gss1svpmtv6" path="res://Scenes/CrabEnemy.cs" id="1_4oagd"]
+[ext_resource type="Texture2D" uid="uid://c1uerawb1p5vu" path="res://Assets/Sprites/enemy_crab_01_sheet.png" id="1_fbe0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
+size = Vector2(70, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oagd"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(0, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3asvk"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(80, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hucot"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(160, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e33j"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(240, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y88q"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rr2i"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6owdx"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4sem"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyqpc"]
+atlas = ExtResource("1_fbe0a")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sc3yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oagd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3asvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hucot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e33j")
+}],
+"loop": 1,
+"name": &"Angry",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y88q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rr2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6owdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4sem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyqpc")
+}],
+"loop": 1,
+"name": &"Calm",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sc3yg"]
+radius = 112.00446
+
+[node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "playerDetection", "playerSight")]
+collision_layer = 4
+lock_rotation = true
+script = ExtResource("1_4oagd")
+crabAnimation = NodePath("CrabAnimation")
+playerDetection = NodePath("PlayerDetection")
+playerSight = NodePath("PlayerSight")
+
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=1681159941]
+shape = SubResource("RectangleShape2D_yl4b0")
+
+[node name="CrabAnimation" type="AnimatedSprite2D" parent="." unique_id=982817329]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_sc3yg")
+animation = &"Calm"
+frame_progress = 0.20623994
+
+[node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
+target_position = Vector2(112, 0)
+collision_mask = 2
+
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=57782221]
+collision_layer = 0
+collision_mask = 2
+
+[node name="PlayerDetectionArea" type="CollisionShape2D" parent="PlayerDetection" unique_id=729708165]
+shape = SubResource("CircleShape2D_sc3yg")
