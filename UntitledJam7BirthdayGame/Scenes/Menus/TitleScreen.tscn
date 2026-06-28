@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxs8ea2ma4rni"]
 
 [ext_resource type="Script" uid="uid://c3jaoc8rasbxv" path="res://Scripts/Menus/TitleScreen.cs" id="1_rfquq"]
+[ext_resource type="Texture2D" uid="uid://mmo0vibjlav" path="res://Assets/Sprites/TitleScreen.png" id="2_v3eic"]
 [ext_resource type="PackedScene" uid="uid://ddylnbo6nwfp2" path="res://Scenes/Menus/SettingsMenu.tscn" id="3_hqtmt"]
 [ext_resource type="PackedScene" uid="uid://bheiw0epx3a6f" path="res://Scenes/Menus/MainMenu.tscn" id="3_rfquq"]
 
@@ -16,9 +17,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rfquq")
 
+[node name="TitleScreen" type="Sprite2D" parent="." unique_id=1107249767]
+texture = ExtResource("2_v3eic")
+
 [node name="MainMenu" parent="." unique_id=1000448266 instance=ExtResource("3_rfquq")]
 layout_mode = 1
+offset_left = -48.0
 offset_top = -113.0
+offset_right = 256.0
 offset_bottom = 113.0
 
 [node name="SettingsMenu" parent="." unique_id=1538687518 instance=ExtResource("3_hqtmt")]
