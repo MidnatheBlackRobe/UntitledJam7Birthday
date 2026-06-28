@@ -189,9 +189,10 @@ playerSight = NodePath("PlayerSight")
 shape = SubResource("RectangleShape2D_yl4b0")
 
 [node name="CrabAnimation" type="AnimatedSprite2D" parent="." unique_id=982817329]
-position = Vector2(0, -9)
+position = Vector2(0, 23)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
 animation = &"Death"
+offset = Vector2(0, -32)
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(112, 0)

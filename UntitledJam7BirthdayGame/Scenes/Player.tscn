@@ -524,10 +524,10 @@ script = ExtResource("1_kyqiw")
 playerAnimation = NodePath("PlayerAnimation")
 
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724 node_paths=PackedStringArray("topDownAnimations")]
-position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
 animation = &"Death"
 autoplay = "Down_Idle"
+offset = Vector2(0, -48)
 script = ExtResource("3_dewec")
 topDownAnimations = NodePath("TopDownAnimation")
 
@@ -535,7 +535,5 @@ topDownAnimations = NodePath("TopDownAnimation")
 script = ExtResource("4_5ixxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583321580]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_yl4b0")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=446371231]
-position = Vector2(0, -29)
