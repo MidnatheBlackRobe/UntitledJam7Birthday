@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmr680jnitpjh"]
 
-[ext_resource type="Script" uid="uid://gss1svpmtv6" path="res://Scenes/CrabEnemy.cs" id="1_4oagd"]
+[ext_resource type="Script" uid="uid://gss1svpmtv6" path="res://Scripts/CrabEnemy.cs" id="1_4oagd"]
 [ext_resource type="Texture2D" uid="uid://c1uerawb1p5vu" path="res://Assets/Sprites/enemy_crab_01_sheet.png" id="1_fbe0a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4b0"]
@@ -100,7 +100,7 @@ shape = SubResource("RectangleShape2D_yl4b0")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
 animation = &"Calm"
-frame_progress = 0.20623994
+frame_progress = 0.61648864
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(112, 0)

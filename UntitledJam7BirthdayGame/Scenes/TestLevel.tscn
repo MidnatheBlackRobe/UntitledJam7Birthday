@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://wsontnf4v4rt"]
 
-[ext_resource type="Script" uid="uid://dk0cjq4caqj7v" path="res://Scenes/TestLevel.cs" id="1_5q7gb"]
+[ext_resource type="Script" uid="uid://dk0cjq4caqj7v" path="res://Scripts/TestLevel.cs" id="1_5q7gb"]
 [ext_resource type="Texture2D" uid="uid://jmmj2gdhbokw" path="res://Assets/Sprites/tileset_ship_01.png" id="1_bhm8u"]
 [ext_resource type="PackedScene" uid="uid://dlmooys1otcjg" path="res://Scenes/Player.tscn" id="2_5ms4e"]
 [ext_resource type="Texture2D" uid="uid://bvpwa6kiup0av" path="res://Assets/Sprites/tileset_water.png" id="3_shgkq"]
@@ -9,10 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://bim5sxa4kgw2w" path="res://Audio/BackgroundIntro.mp3" id="7_5q7gb"]
 [ext_resource type="Texture2D" uid="uid://0becelyvlwio" path="res://Assets/Sprites/healthOver.png" id="8_43uqb"]
 [ext_resource type="AudioStream" uid="uid://kb645b7y3fpa" path="res://Audio/BackgroundMainLoop.mp3" id="8_h2ngc"]
-[ext_resource type="Script" uid="uid://divyefr7ban4k" path="res://Scenes/UserInterface.cs" id="8_pfdk1"]
+[ext_resource type="Script" uid="uid://divyefr7ban4k" path="res://Scripts/UserInterface.cs" id="8_pfdk1"]
 [ext_resource type="Texture2D" uid="uid://pv056t56l15r" path="res://Assets/Sprites/healthUnder.png" id="9_v3vpo"]
 [ext_resource type="Texture2D" uid="uid://dyro6f7lmx8f8" path="res://Assets/Sprites/health.png" id="11_pfdk1"]
-[ext_resource type="Script" uid="uid://3qxerkh6navf" path="res://Scenes/HealthBar.cs" id="13_cs0qk"]
+[ext_resource type="Script" uid="uid://3qxerkh6navf" path="res://Scripts/HealthBar.cs" id="13_cs0qk"]
 [ext_resource type="PackedScene" uid="uid://cmr680jnitpjh" path="res://Scenes/CrabEnemy.tscn" id="14_ucv7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ms4e"]
@@ -107,7 +107,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAGAAMAAAABAAAAAAAGAAMAAAACAAAAAAAGAAM
 tile_set = SubResource("TileSet_w2yo7")
 
 [node name="Player" parent="." unique_id=137148717 instance=ExtResource("2_5ms4e")]
-position = Vector2(577, 325)
+position = Vector2(577, 323)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=1892181191]
 stream = SubResource("AudioStreamInteractive_sc3yg")
