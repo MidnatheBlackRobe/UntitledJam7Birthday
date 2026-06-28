@@ -17,6 +17,10 @@ region = Rect2(96, 672, 96, 96)
 atlas = ExtResource("2_dewec")
 region = Rect2(192, 672, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbv6f"]
+atlas = ExtResource("2_dewec")
+region = Rect2(288, 768, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
 atlas = ExtResource("2_dewec")
 region = Rect2(0, 0, 96, 96)
@@ -101,6 +105,10 @@ region = Rect2(384, 672, 96, 96)
 atlas = ExtResource("2_dewec")
 region = Rect2(480, 672, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp15a"]
+atlas = ExtResource("2_dewec")
+region = Rect2(480, 768, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gntrk"]
 atlas = ExtResource("2_dewec")
 region = Rect2(0, 192, 96, 96)
@@ -160,6 +168,10 @@ region = Rect2(96, 768, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4y2r"]
 atlas = ExtResource("2_dewec")
 region = Rect2(192, 768, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fayk8"]
+atlas = ExtResource("2_dewec")
+region = Rect2(384, 768, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
 atlas = ExtResource("2_dewec")
@@ -223,6 +235,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Down_Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbv6f")
+}],
+"loop": 1,
+"name": &"Down_Hit",
 "speed": 7.0
 }, {
 "frames": [{
@@ -305,6 +325,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vp15a")
+}],
+"loop": 1,
+"name": &"Side_Hit",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gntrk")
 }, {
 "duration": 1.0,
@@ -361,6 +389,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Up_Attack",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fayk8")
+}],
+"loop": 1,
+"name": &"Up_Hit",
 "speed": 7.0
 }, {
 "frames": [{
@@ -422,7 +458,7 @@ playerAnimation = NodePath("PlayerAnimation")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724 node_paths=PackedStringArray("topDownAnimations")]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
-animation = &"Up_Attack"
+animation = &"Up_Hit"
 autoplay = "Down_Idle"
 script = ExtResource("3_dewec")
 topDownAnimations = NodePath("TopDownAnimation")
