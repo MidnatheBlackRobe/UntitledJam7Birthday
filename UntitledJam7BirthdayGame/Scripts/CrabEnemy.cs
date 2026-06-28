@@ -25,7 +25,7 @@ public partial class CrabEnemy : RigidBody2D
 	float maxSpeed = 100f;
 	float acceleration = 300f;
 
-	float health = 2f;
+	float health = 10f;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -114,8 +114,8 @@ public partial class CrabEnemy : RigidBody2D
 	{
 		SetState("Hit");
 		health -= 1f;
-		Vector2 knockback = (position - Position).Normalized() * DAMAGE_KNOCKBACK;
-		LinearVelocity += knockback;
+		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
+		LinearVelocity = knockback;
 		if (health <= 0)
 		{
 			_ = OnDeath();

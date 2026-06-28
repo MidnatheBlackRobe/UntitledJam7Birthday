@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c1uerawb1p5vu" path="res://Assets/Sprites/enemy_crab_01_sheet.png" id="1_fbe0a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dewec"]
-radius = 15.0
-height = 56.0
+radius = 21.0
+height = 64.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oagd"]
 atlas = ExtResource("1_fbe0a")
@@ -193,15 +193,14 @@ playerDetection = NodePath("PlayerDetection")
 playerSight = NodePath("PlayerSight")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1681159941]
-position = Vector2(0, 7)
+position = Vector2(0, -2)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dewec")
 
 [node name="CrabAnimation" type="AnimatedSprite2D" parent="." unique_id=982817329]
-position = Vector2(0, 23)
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
-animation = &"Angry"
-frame_progress = 0.49836367
+animation = &"Calm"
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(140, 0)

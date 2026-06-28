@@ -99,12 +99,10 @@ public partial class Player : CharacterBody2D
 		if (health <= 0) isDead?.Invoke();
 		SetState("Hit");
 		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
-		Velocity += knockback;
+		Velocity = knockback;
 		await ToSignal(GetTree().CreateTimer(DAMAGE_TIME), SceneTreeTimer.SignalName.Timeout);
 		SetState("Idle");
 	}
-
-	private const float ATTACK_TIME = .85f;
 
 	public async Task Attack()
 	{
@@ -117,6 +115,10 @@ public partial class Player : CharacterBody2D
 	{
 		this.state = state;
 		playerAnimation.UpdateAnimation(state, direction);
+		if (state == "Attack")
+		{
+			Velocity = Vector2.Zero;
+		}
 	}
 
 	private void SetDirection(string direction)

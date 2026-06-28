@@ -20,12 +20,4 @@ public partial class HealthBar : TextureProgressBar
 		Value -= 1;
 		if (Value <= 0) Value = MaxValue;
 	}
-
-	public override void _Input(InputEvent @event)
-	{
-		if (@event.IsActionPressed("attack"))
-		{
-			Damage();
-		}
-	}
 }
