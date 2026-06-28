@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dlmooys1otcjg"]
 
-[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://Scripts/Player.cs" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://c7vak67hm8bml" path="res://Scripts/Player/Player.cs" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://bc74xe083xj52" path="res://Assets/Sprites/player_sheet.png" id="2_dewec"]
-[ext_resource type="Script" uid="uid://2lcfwaq1w0he" path="res://Scenes/PlayerAnimation.cs" id="3_dewec"]
-[ext_resource type="Script" uid="uid://5va6lry0oij7" path="res://Scenes/TopDownAnimation.cs" id="4_5ixxa"]
+[ext_resource type="Script" uid="uid://2lcfwaq1w0he" path="res://Scripts/Player/PlayerAnimation.cs" id="3_dewec"]
+[ext_resource type="Script" uid="uid://5va6lry0oij7" path="res://Scripts/TopDownAnimation.cs" id="4_5ixxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teras"]
 atlas = ExtResource("2_dewec")
