@@ -530,7 +530,7 @@ size = Vector2(20, 19)
 size = Vector2(23.25, 17)
 
 [node name="Player" type="CharacterBody2D" unique_id=137148717 node_paths=PackedStringArray("playerAnimation", "playerWeapon", "playerHurtBox")]
-collision_layer = 3
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_kyqiw")
 playerAnimation = NodePath("PlayerAnimation")
@@ -549,9 +549,6 @@ script = ExtResource("3_dewec")
 position = Vector2(0, 1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4oagd")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=446371231]
-position = Vector2(0, -29)
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1048658261]
 position = Vector2(0, -26)
