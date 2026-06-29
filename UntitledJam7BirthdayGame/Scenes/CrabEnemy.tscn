@@ -182,13 +182,12 @@ radius = 140.08926
 radius = 20.0
 height = 64.0
 
-[node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "hitBox", "playerDetection", "playerSight")]
+[node name="CrabEnemy" type="RigidBody2D" unique_id=762200399 node_paths=PackedStringArray("crabAnimation", "playerDetection", "playerSight")]
 collision_layer = 4
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_4oagd")
 crabAnimation = NodePath("CrabAnimation")
-hitBox = NodePath("HitBox")
 playerDetection = NodePath("PlayerDetection")
 playerSight = NodePath("PlayerSight")
 
@@ -198,9 +197,10 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_dewec")
 
 [node name="CrabAnimation" type="AnimatedSprite2D" parent="." unique_id=982817329]
-position = Vector2(0, -8)
+position = Vector2(0, 24)
 sprite_frames = SubResource("SpriteFrames_sc3yg")
 animation = &"Calm"
+offset = Vector2(0, -32)
 
 [node name="PlayerSight" type="RayCast2D" parent="." unique_id=2138127702]
 target_position = Vector2(140, 0)

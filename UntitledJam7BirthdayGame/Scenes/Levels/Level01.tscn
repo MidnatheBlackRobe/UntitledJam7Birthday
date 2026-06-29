@@ -3,6 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://jmmj2gdhbokw" path="res://Assets/Sprites/tileset_ship_01.png" id="1_882ua"]
 [ext_resource type="PackedScene" uid="uid://dlmooys1otcjg" path="res://Scenes/Player.tscn" id="2_ll5b2"]
 [ext_resource type="Texture2D" uid="uid://bnwvyomcmxlpq" path="res://Assets/Sprites/tileset_ship_environment.png" id="2_tvhti"]
+[ext_resource type="Texture2D" uid="uid://beakkk1vky34" path="res://Assets/Sprites/animated_foliage_sheet.png" id="4_tvhti"]
+[ext_resource type="Script" uid="uid://divyefr7ban4k" path="res://Scripts/UserInterface.cs" id="5_w6blo"]
+[ext_resource type="PackedScene" uid="uid://dr1b8xfpcxp0a" path="res://Scenes/Menus/PausePanel.tscn" id="6_5jjrx"]
+[ext_resource type="Texture2D" uid="uid://pv056t56l15r" path="res://Assets/Sprites/healthUnder.png" id="7_iqkhq"]
+[ext_resource type="Texture2D" uid="uid://0becelyvlwio" path="res://Assets/Sprites/healthOver.png" id="8_qndlp"]
+[ext_resource type="Texture2D" uid="uid://dyro6f7lmx8f8" path="res://Assets/Sprites/health.png" id="9_yl4s6"]
+[ext_resource type="Script" uid="uid://3qxerkh6navf" path="res://Scripts/HealthBar.cs" id="10_kt2x8"]
+[ext_resource type="AudioStream" uid="uid://bim5sxa4kgw2w" path="res://Audio/BackgroundIntro.mp3" id="11_iqkhq"]
+[ext_resource type="AudioStream" uid="uid://kb645b7y3fpa" path="res://Audio/BackgroundMainLoop.mp3" id="12_qndlp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvhti"]
 texture = ExtResource("1_882ua")
@@ -75,6 +84,36 @@ tile_size = Vector2i(72, 72)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gxsi4")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkq7q"]
+texture = ExtResource("4_tvhti")
+texture_region_size = Vector2i(72, 72)
+0:0/animation_columns = 8
+0:0/animation_speed = 7.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 32
+
+[sub_resource type="TileSet" id="TileSet_gu1ye"]
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_rkq7q")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_yl4s6"]
+clip_count = 2
+clip_0/name = &"Intro"
+clip_0/stream = ExtResource("11_iqkhq")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Loop"
+clip_1/stream = ExtResource("12_qndlp")
+clip_1/auto_advance = 0
+
 [node name="Level01" type="Node2D" unique_id=362762994]
 y_sort_enabled = true
 
@@ -91,6 +130,7 @@ tile_set = SubResource("TileSet_w2yo7")
 
 [node name="Player" parent="." unique_id=137148717 instance=ExtResource("2_ll5b2")]
 y_sort_enabled = true
+collision_layer = 3
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=661695420]
 position = Vector2(0, -63)
@@ -106,3 +146,43 @@ tile_set = SubResource("TileSet_b3f77")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1460139226]
 position = Vector2(432, 192)
+
+[node name="Foliage" type="TileMapLayer" parent="." unique_id=1535443697]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAADAP7/AAAAAAAAAAD8/wAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gu1ye")
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=471859821 node_paths=PackedStringArray("healthBar")]
+script = ExtResource("5_w6blo")
+healthBar = NodePath("HealthBar")
+
+[node name="PausePanel" parent="UserInterface" unique_id=1898800224 instance=ExtResource("6_5jjrx")]
+visible = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="UserInterface" unique_id=386525208]
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 213.0
+offset_bottom = 45.0
+max_value = 1.0
+step = 0.25
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("7_iqkhq")
+texture_over = ExtResource("8_qndlp")
+texture_progress = ExtResource("9_yl4s6")
+script = ExtResource("10_kt2x8")
+
+[node name="GameOverScreen" type="Control" parent="UserInterface" unique_id=1334248310]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=787991170]
+stream = SubResource("AudioStreamInteractive_yl4s6")
+autoplay = true
+bus = &"Music"

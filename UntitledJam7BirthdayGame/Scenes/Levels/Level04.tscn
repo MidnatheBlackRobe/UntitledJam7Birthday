@@ -1,0 +1,202 @@
+[gd_scene format=4 uid="uid://bomh8r3iaxt7s"]
+
+[ext_resource type="Texture2D" uid="uid://jmmj2gdhbokw" path="res://Assets/Sprites/tileset_ship_01.png" id="1_srgb3"]
+[ext_resource type="PackedScene" uid="uid://dlmooys1otcjg" path="res://Scenes/Player.tscn" id="2_uburf"]
+[ext_resource type="Texture2D" uid="uid://bnwvyomcmxlpq" path="res://Assets/Sprites/tileset_ship_environment.png" id="3_o6rnf"]
+[ext_resource type="Texture2D" uid="uid://beakkk1vky34" path="res://Assets/Sprites/animated_foliage_sheet.png" id="4_84epy"]
+[ext_resource type="Script" uid="uid://divyefr7ban4k" path="res://Scripts/UserInterface.cs" id="5_2qedn"]
+[ext_resource type="PackedScene" uid="uid://dr1b8xfpcxp0a" path="res://Scenes/Menus/PausePanel.tscn" id="6_hvgrt"]
+[ext_resource type="Texture2D" uid="uid://pv056t56l15r" path="res://Assets/Sprites/healthUnder.png" id="7_nr7pg"]
+[ext_resource type="Texture2D" uid="uid://0becelyvlwio" path="res://Assets/Sprites/healthOver.png" id="8_6apyj"]
+[ext_resource type="Texture2D" uid="uid://dyro6f7lmx8f8" path="res://Assets/Sprites/health.png" id="9_rpnsi"]
+[ext_resource type="Script" uid="uid://3qxerkh6navf" path="res://Scripts/HealthBar.cs" id="10_gcn2u"]
+[ext_resource type="AudioStream" uid="uid://bim5sxa4kgw2w" path="res://Audio/BackgroundIntro.mp3" id="11_hoube"]
+[ext_resource type="AudioStream" uid="uid://kb645b7y3fpa" path="res://Audio/BackgroundMainLoop.mp3" id="12_topvs"]
+[ext_resource type="PackedScene" uid="uid://cmr680jnitpjh" path="res://Scenes/CrabEnemy.tscn" id="13_uburf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvhti"]
+texture = ExtResource("1_srgb3")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+
+[sub_resource type="TileSet" id="TileSet_w2yo7"]
+tile_size = Vector2i(72, 72)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tvhti")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxsi4"]
+texture = ExtResource("3_o6rnf")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+0:0/0/y_sort_origin = 35
+1:0/0 = 0
+1:0/0/y_sort_origin = 35
+2:0/0 = 0
+2:0/0/y_sort_origin = 35
+3:0/0 = 0
+3:0/0/y_sort_origin = 35
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30.857143, 0, 30.85714, 0, 30.85714, 20.571426, 0, 36, -30.857143, 20.571426)
+4:0/0 = 0
+4:0/0/y_sort_origin = 35
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.714287, 0, 25.714287, 0, 30, 5.5, 10.285713, 30.85714, -10.285715, 30.85714, -30, 5)
+0:1/0 = 0
+0:1/0/y_sort_origin = 35
+1:1/0 = 0
+1:1/0/y_sort_origin = 35
+2:1/0 = 0
+2:1/0/y_sort_origin = 35
+
+[sub_resource type="TileSet" id="TileSet_b3f77"]
+tile_size = Vector2i(72, 72)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gxsi4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkq7q"]
+texture = ExtResource("4_84epy")
+texture_region_size = Vector2i(72, 72)
+0:0/animation_columns = 8
+0:0/animation_speed = 7.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 32
+
+[sub_resource type="TileSet" id="TileSet_gu1ye"]
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_rkq7q")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_yl4s6"]
+clip_count = 2
+clip_0/name = &"Intro"
+clip_0/stream = ExtResource("11_hoube")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Loop"
+clip_1/stream = ExtResource("12_topvs")
+clip_1/auto_advance = 0
+
+[node name="Level01" type="Node2D" unique_id=362762994]
+y_sort_enabled = true
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=488334815]
+z_index = -1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD5//v/AAABAAIAAAD5//z/AAABAAIAAAD5//3/AAABAAIAAAD5//7/AAABAAIAAAD5////AAABAAIAAAD5/wAAAAABAAIAAAD5/wEAAAABAAIAAAD5/wIAAAABAAIAAAD5/wMAAAABAAIAAAD6//v/AAABAAIAAAD6//z/AAABAAIAAAD6//3/AAABAAIAAAD6//7/AAABAAIAAAD6////AAABAAIAAAD6/wAAAAABAAIAAAD6/wEAAAABAAIAAAD6/wIAAAABAAIAAAD6/wMAAAABAAIAAAD7//v/AAABAAIAAAD7//z/AAABAAIAAAD7//3/AAAEAAEAAAD7//7/AAACAAIAAAD7////AAAEAAIAAAD7/wAAAAABAAIAAAD7/wEAAAABAAIAAAD7/wIAAAABAAIAAAD7/wMAAAABAAIAAAD8//v/AAABAAIAAAD8//z/AAABAAIAAAD8//3/AAABAAMAAAD8//7/AAAGAAMAAAD8////AAABAAEAAAD8/wAAAAABAAIAAAD8/wEAAAABAAIAAAD8/wIAAAABAAIAAAD8/wMAAAABAAIAAAD9//v/AAABAAIAAAD9//z/AAABAAIAAAD9//3/AAAFAAEAAAD9//7/AAAAAAIAAAD9////AAAFAAIAAAD9/wAAAAABAAIAAAD9/wEAAAABAAIAAAD9/wIAAAABAAIAAAD9/wMAAAABAAIAAAD+//v/AAABAAIAAAD+//z/AAABAAIAAAD+//3/AAABAAIAAAD+//7/AAABAAIAAAD+////AAABAAIAAAD+/wAAAAABAAIAAAD+/wEAAAABAAIAAAD+/wIAAAABAAIAAAD+/wMAAAABAAIAAAD///v/AAABAAIAAAD///z/AAABAAIAAAD///3/AAABAAIAAAD///7/AAABAAIAAAD/////AAABAAIAAAD//wAAAAABAAIAAAD//wEAAAABAAIAAAD//wIAAAABAAIAAAD//wMAAAABAAIAAAAAAPv/AAABAAIAAAAAAPz/AAABAAIAAAAAAP3/AAABAAIAAAAAAP7/AAABAAIAAAAAAP//AAABAAIAAAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAIAAAAAAAMAAAABAAIAAAABAPv/AAABAAIAAAABAPz/AAABAAIAAAABAP3/AAABAAIAAAABAP7/AAABAAIAAAABAP//AAABAAIAAAABAAAAAAABAAIAAAABAAEAAAABAAIAAAABAAIAAAABAAIAAAABAAMAAAABAAIAAAACAPv/AAABAAIAAAACAPz/AAABAAIAAAACAP3/AAABAAIAAAACAP7/AAABAAIAAAACAP//AAABAAIAAAACAAAAAAABAAIAAAACAAEAAAABAAIAAAACAAIAAAABAAIAAAACAAMAAAABAAIAAAADAPv/AAABAAIAAAADAPz/AAABAAIAAAADAP3/AAABAAIAAAADAP7/AAABAAIAAAADAP//AAABAAIAAAADAAAAAAABAAIAAAADAAEAAAABAAIAAAADAAIAAAABAAIAAAADAAMAAAABAAIAAAAEAPv/AAABAAIAAAAEAPz/AAABAAIAAAAEAP3/AAABAAIAAAAEAP7/AAABAAIAAAAEAP//AAABAAIAAAAEAAAAAAABAAIAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAAEAAMAAAABAAIAAAAFAPv/AAABAAIAAAAFAPz/AAABAAIAAAAFAP3/AAABAAIAAAAFAP7/AAABAAIAAAAFAP//AAABAAIAAAAFAAAAAAAEAAEAAAAFAAEAAAACAAIAAAAFAAIAAAAEAAIAAAAFAAMAAAABAAIAAAAGAPv/AAABAAIAAAAGAPz/AAABAAIAAAAGAP3/AAABAAIAAAAGAP7/AAABAAIAAAAGAP//AAABAAIAAAAGAAAAAAABAAMAAAAGAAIAAAABAAEAAAAGAAMAAAABAAIAAAAHAPv/AAABAAIAAAAHAPz/AAABAAIAAAAHAP3/AAABAAIAAAAHAP7/AAABAAIAAAAHAP//AAABAAIAAAAHAAAAAAAFAAEAAAAHAAEAAAAAAAIAAAAHAAIAAAAFAAIAAAAHAAMAAAABAAIAAAAIAPv/AAABAAIAAAAIAPz/AAABAAIAAAAIAP3/AAABAAIAAAAIAP7/AAABAAIAAAAIAP//AAABAAIAAAAIAAAAAAABAAIAAAAIAAEAAAABAAIAAAAIAAIAAAABAAIAAAAIAAMAAAABAAIAAAAJAPv/AAABAAIAAAAJAPz/AAABAAIAAAAJAP3/AAABAAIAAAAJAP7/AAABAAIAAAAJAP//AAABAAIAAAAJAAAAAAABAAIAAAAJAAEAAAABAAIAAAAJAAIAAAABAAIAAAAJAAMAAAABAAIAAAAGAAEAAAAGAAMAAAA=")
+tile_set = SubResource("TileSet_w2yo7")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=925120469]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD7//v/AAAGAAMAAAD8//v/AAAGAAMAAAD9//v/AAAGAAMAAAD+//v/AAAGAAMAAAAAAPz/AAAGAAMAAAD///v/AAAGAAMAAAABAPz/AAAGAAMAAAACAPz/AAAGAAMAAAADAPv/AAAGAAMAAAAEAPv/AAAGAAMAAAAFAPv/AAAGAAMAAAAGAPv/AAAGAAMAAAAHAPv/AAAGAAMAAAD6//z/AAAGAAMAAAAIAPz/AAAGAAMAAAD5//3/AAAGAAMAAAAJAP3/AAAGAAMAAAD7//z/AAAAAAAAAAD8//z/AAABAAAAAAD9//z/AAAGAAIAAAD+//z/AAABAAAAAAD///z/AAACAAAAAAADAPz/AAAAAAAAAAAHAPz/AAACAAAAAAAEAPz/AAABAAAAAAAFAPz/AAAGAAIAAAAGAPz/AAABAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAGAAIAAAACAP3/AAACAAAAAAAIAP3/AAAGAAAAAAAJAP7/AAAAAAAAAAD5//7/AAAGAAAAAAD6//3/AAAGAAAAAAAAAPv/AAAGAAMAAAABAPv/AAAGAAMAAAACAPv/AAAGAAMAAAD6//v/AAAGAAMAAAD5//z/AAAGAAMAAAD5//v/AAAGAAMAAAAIAPv/AAAGAAMAAAAJAPv/AAAGAAMAAAAJAPz/AAAGAAMAAAD5/wEAAAAGAAMAAAD5/wIAAAAGAAMAAAD6/wIAAAAGAAMAAAAAAAIAAAAGAAMAAAABAAIAAAAGAAMAAAACAAIAAAAGAAMAAAAIAAIAAAAGAAMAAAAJAAEAAAAGAAMAAAAJAAIAAAAGAAMAAAD5/wMAAAAGAAMAAAD6/wMAAAAGAAMAAAD7/wMAAAAGAAMAAAD8/wMAAAAGAAMAAAD9/wMAAAAGAAMAAAD+/wMAAAAGAAMAAAD//wMAAAAGAAMAAAAAAAMAAAAGAAMAAAABAAMAAAAGAAMAAAACAAMAAAAGAAMAAAADAAMAAAAGAAMAAAAEAAMAAAAGAAMAAAAFAAMAAAAGAAMAAAAGAAMAAAAGAAMAAAAHAAMAAAAGAAMAAAAIAAMAAAAGAAMAAAAJAAMAAAAGAAMAAAA=")
+tile_set = SubResource("TileSet_w2yo7")
+
+[node name="Player" parent="." unique_id=137148717 instance=ExtResource("2_uburf")]
+y_sort_enabled = true
+position = Vector2(-444, 12)
+collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=661695420]
+position = Vector2(0, -63)
+limit_left = -504
+limit_top = -360
+limit_right = 720
+limit_bottom = 288
+
+[node name="Environment" type="TileMapLayer" parent="." unique_id=2001047297]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAP3/AAACAAAAAAD9//z/AAAAAAAAAAAFAPz/AAABAAAAAAAFAP7/AAAEAAAAAAD9//7/AAAEAAAAAAADAP//AAAEAAAAAAD/////AAAEAAAAAAAHAP//AAAEAAAAAAD7////AAAEAAAAAAD9/wAAAAAEAAAAAAAFAAAAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_b3f77")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1460139226]
+position = Vector2(720, 288)
+
+[node name="Foliage" type="TileMapLayer" parent="." unique_id=1535443697]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAGAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAD///3/AAAAAAAAAAABAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP3/AAAAAAAAAAD8/wAAAAAAAAAAAAD9////AAAAAAAAAAD7//3/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gu1ye")
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=471859821 node_paths=PackedStringArray("healthBar")]
+script = ExtResource("5_2qedn")
+healthBar = NodePath("HealthBar")
+
+[node name="PausePanel" parent="UserInterface" unique_id=1898800224 instance=ExtResource("6_hvgrt")]
+visible = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="UserInterface" unique_id=386525208]
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 213.0
+offset_bottom = 45.0
+max_value = 1.0
+step = 0.25
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("7_nr7pg")
+texture_over = ExtResource("8_6apyj")
+texture_progress = ExtResource("9_rpnsi")
+script = ExtResource("10_gcn2u")
+
+[node name="GameOverScreen" type="Control" parent="UserInterface" unique_id=1334248310]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=787991170]
+stream = SubResource("AudioStreamInteractive_yl4s6")
+autoplay = true
+bus = &"Music"
+
+[node name="CrabEnemy" parent="." unique_id=762200399 instance=ExtResource("13_uburf")]
+y_sort_enabled = true
+position = Vector2(-84, 73)
+
+[node name="CrabEnemy2" parent="." unique_id=663129404 instance=ExtResource("13_uburf")]
+y_sort_enabled = true
+position = Vector2(134, -79)
+
+[node name="CrabEnemy3" parent="." unique_id=1100018172 instance=ExtResource("13_uburf")]
+y_sort_enabled = true
+position = Vector2(545, 44)

@@ -1,0 +1,194 @@
+[gd_scene format=4 uid="uid://5f23t0xjfcr4"]
+
+[ext_resource type="Texture2D" uid="uid://jmmj2gdhbokw" path="res://Assets/Sprites/tileset_ship_01.png" id="1_1ijcm"]
+[ext_resource type="PackedScene" uid="uid://dlmooys1otcjg" path="res://Scenes/Player.tscn" id="2_nbct8"]
+[ext_resource type="Texture2D" uid="uid://bnwvyomcmxlpq" path="res://Assets/Sprites/tileset_ship_environment.png" id="3_uffpw"]
+[ext_resource type="Texture2D" uid="uid://beakkk1vky34" path="res://Assets/Sprites/animated_foliage_sheet.png" id="4_0q5gv"]
+[ext_resource type="Script" uid="uid://divyefr7ban4k" path="res://Scripts/UserInterface.cs" id="5_n4mcj"]
+[ext_resource type="PackedScene" uid="uid://dr1b8xfpcxp0a" path="res://Scenes/Menus/PausePanel.tscn" id="6_qvm14"]
+[ext_resource type="Texture2D" uid="uid://pv056t56l15r" path="res://Assets/Sprites/healthUnder.png" id="7_aclp7"]
+[ext_resource type="Texture2D" uid="uid://0becelyvlwio" path="res://Assets/Sprites/healthOver.png" id="8_oyc4q"]
+[ext_resource type="Texture2D" uid="uid://dyro6f7lmx8f8" path="res://Assets/Sprites/health.png" id="9_0ek62"]
+[ext_resource type="Script" uid="uid://3qxerkh6navf" path="res://Scripts/HealthBar.cs" id="10_i044d"]
+[ext_resource type="AudioStream" uid="uid://bim5sxa4kgw2w" path="res://Audio/BackgroundIntro.mp3" id="11_0c2d2"]
+[ext_resource type="AudioStream" uid="uid://kb645b7y3fpa" path="res://Audio/BackgroundMainLoop.mp3" id="12_2p2hc"]
+[ext_resource type="PackedScene" uid="uid://cmr680jnitpjh" path="res://Scenes/CrabEnemy.tscn" id="13_nbct8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvhti"]
+texture = ExtResource("1_1ijcm")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-36, -36, 36, -36, 36, 36, -36, 36)
+
+[sub_resource type="TileSet" id="TileSet_w2yo7"]
+tile_size = Vector2i(72, 72)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tvhti")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxsi4"]
+texture = ExtResource("3_uffpw")
+texture_region_size = Vector2i(72, 72)
+0:0/0 = 0
+0:0/0/y_sort_origin = 35
+1:0/0 = 0
+1:0/0/y_sort_origin = 35
+2:0/0 = 0
+2:0/0/y_sort_origin = 35
+3:0/0 = 0
+3:0/0/y_sort_origin = 35
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-30.857143, 0, 30.85714, 0, 30.85714, 20.571426, 0, 36, -30.857143, 20.571426)
+4:0/0 = 0
+4:0/0/y_sort_origin = 35
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.714287, 0, 25.714287, 0, 30, 5.5, 10.285713, 30.85714, -10.285715, 30.85714, -30, 5)
+0:1/0 = 0
+0:1/0/y_sort_origin = 35
+1:1/0 = 0
+1:1/0/y_sort_origin = 35
+2:1/0 = 0
+2:1/0/y_sort_origin = 35
+
+[sub_resource type="TileSet" id="TileSet_b3f77"]
+tile_size = Vector2i(72, 72)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gxsi4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkq7q"]
+texture = ExtResource("4_0q5gv")
+texture_region_size = Vector2i(72, 72)
+0:0/animation_columns = 8
+0:0/animation_speed = 7.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/y_sort_origin = 32
+
+[sub_resource type="TileSet" id="TileSet_gu1ye"]
+tile_size = Vector2i(72, 72)
+sources/0 = SubResource("TileSetAtlasSource_rkq7q")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_yl4s6"]
+clip_count = 2
+clip_0/name = &"Intro"
+clip_0/stream = ExtResource("11_0c2d2")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Loop"
+clip_1/stream = ExtResource("12_2p2hc")
+clip_1/auto_advance = 0
+
+[node name="Level03" type="Node2D" unique_id=362762994]
+y_sort_enabled = true
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=488334815]
+z_index = -1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8//v/AAABAAIAAAD8//z/AAABAAIAAAD8//3/AAABAAIAAAD8//7/AAABAAIAAAD8////AAABAAIAAAD8/wAAAAABAAIAAAD8/wEAAAABAAIAAAD8/wIAAAABAAIAAAD9//v/AAABAAIAAAD9//z/AAABAAIAAAD9//3/AAABAAIAAAD9//7/AAABAAIAAAD9////AAABAAIAAAD9/wAAAAABAAIAAAD9/wEAAAABAAIAAAD9/wIAAAABAAIAAAD+//v/AAABAAIAAAD+//z/AAABAAIAAAD+//3/AAABAAIAAAD+//7/AAABAAIAAAD+////AAABAAIAAAD+/wAAAAABAAIAAAD+/wEAAAABAAIAAAD+/wIAAAABAAIAAAD///v/AAABAAIAAAD///z/AAABAAIAAAD///3/AAABAAIAAAD///7/AAABAAIAAAD/////AAABAAIAAAD//wAAAAABAAIAAAD//wEAAAABAAIAAAD//wIAAAABAAIAAAAAAPv/AAABAAIAAAAAAPz/AAABAAIAAAAAAP3/AAABAAIAAAAAAP7/AAABAAIAAAAAAP//AAABAAIAAAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAIAAAABAPv/AAABAAIAAAABAPz/AAABAAIAAAABAP3/AAABAAIAAAABAP7/AAABAAIAAAABAP//AAABAAIAAAABAAAAAAABAAIAAAABAAEAAAABAAIAAAABAAIAAAABAAIAAAACAPv/AAABAAIAAAACAPz/AAABAAIAAAACAP3/AAABAAIAAAACAP7/AAABAAIAAAACAP//AAABAAIAAAACAAAAAAABAAIAAAACAAEAAAABAAIAAAACAAIAAAABAAIAAAADAPv/AAABAAIAAAADAPz/AAABAAIAAAADAP3/AAABAAIAAAADAP7/AAABAAIAAAADAP//AAABAAIAAAADAAAAAAABAAIAAAADAAEAAAABAAIAAAADAAIAAAABAAIAAAAEAPv/AAABAAIAAAAEAPz/AAABAAIAAAAEAP3/AAABAAIAAAAEAP7/AAABAAIAAAAEAP//AAABAAIAAAAEAAAAAAABAAIAAAAEAAEAAAABAAIAAAAEAAIAAAABAAIAAAD+/wMAAAABAAIAAAD//wMAAAABAAIAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAACAAQAAAABAAIAAAABAAQAAAABAAIAAAAAAAQAAAABAAIAAAD//wQAAAABAAIAAAD+/wQAAAABAAIAAAD//wUAAAABAAIAAAAAAAUAAAABAAIAAAABAAUAAAABAAIAAAACAAUAAAABAAIAAAD+/wUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_w2yo7")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=925120469]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD8//v/AAAGAAMAAAD8//z/AAAGAAMAAAD8/wAAAAAGAAMAAAD8/wEAAAAGAAMAAAD8/wIAAAAGAAMAAAD8/wMAAAAGAAMAAAD9//v/AAAGAAMAAAD+//v/AAAGAAMAAAD///v/AAAGAAMAAAAAAPv/AAAGAAMAAAABAPv/AAAGAAMAAAACAPv/AAAGAAMAAAADAPv/AAAGAAMAAAADAAIAAAAGAAMAAAAEAPv/AAAGAAMAAAAEAPz/AAAGAAMAAAAEAAIAAAAGAAMAAAD8//3/AAAGAAMAAAD8/wQAAAAGAAMAAAD9//z/AAAGAAMAAAD9/wUAAAAGAAMAAAD+//z/AAAGAAMAAAD///z/AAABAAAAAAAAAPz/AAAGAAIAAAABAPz/AAABAAAAAAACAPz/AAAGAAMAAAADAPz/AAAGAAMAAAADAAMAAAAGAAMAAAAEAP3/AAAGAAMAAAAEAAMAAAAGAAMAAAD+/wYAAAAGAAMAAAD//wYAAAAGAAMAAAAAAAYAAAAGAAMAAAABAAYAAAAGAAMAAAACAAYAAAAGAAMAAAD8////AAAGAAMAAAD8//7/AAAGAAMAAAD9//3/AAAGAAMAAAD9//7/AAAGAAMAAAD9////AAAGAAMAAAD9/wAAAAAGAAMAAAD9/wEAAAAGAAMAAAD9/wIAAAAGAAMAAAD9/wMAAAAGAAMAAAD9/wQAAAAGAAMAAAADAP3/AAAGAAMAAAADAP7/AAAGAAMAAAADAP//AAAGAAMAAAADAAQAAAAGAAMAAAADAAUAAAAGAAMAAAD+/wUAAAAGAAMAAAACAAUAAAAGAAMAAAD+//3/AAAGAAAAAAACAP3/AAAGAAAAAAAEAP//AAAGAAMAAAAEAP7/AAAGAAMAAAAEAAQAAAAGAAMAAAAEAAYAAAAGAAMAAAADAAYAAAAGAAMAAAAEAAUAAAAGAAMAAAD9/wYAAAAGAAMAAAD8/wYAAAAGAAMAAAD8/wUAAAAGAAMAAAADAAAAAAAAAAAAAAAEAAAAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_w2yo7")
+
+[node name="Player" parent="." unique_id=137148717 instance=ExtResource("2_nbct8")]
+y_sort_enabled = true
+position = Vector2(37, -150)
+collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=661695420]
+position = Vector2(0, -63)
+limit_left = -288
+limit_top = -360
+limit_right = 360
+limit_bottom = 504
+
+[node name="Environment" type="TileMapLayer" parent="." unique_id=2001047297]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAPz/AAABAAAAAAACAP7/AAADAAAAAAD+/wQAAAAEAAAAAAA=")
+tile_set = SubResource("TileSet_b3f77")
+
+[node name="Cam_Marker" type="Node2D" parent="." unique_id=1460139226]
+position = Vector2(360, 504)
+
+[node name="Foliage" type="TileMapLayer" parent="." unique_id=1535443697]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAP3/AAAAAAAAAAD+//7/AAAAAAAAAAACAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_gu1ye")
+
+[node name="UserInterface" type="CanvasLayer" parent="." unique_id=471859821 node_paths=PackedStringArray("healthBar")]
+script = ExtResource("5_n4mcj")
+healthBar = NodePath("HealthBar")
+
+[node name="PausePanel" parent="UserInterface" unique_id=1898800224 instance=ExtResource("6_qvm14")]
+visible = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="UserInterface" unique_id=386525208]
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 213.0
+offset_bottom = 45.0
+max_value = 1.0
+step = 0.25
+nine_patch_stretch = true
+stretch_margin_left = 16
+stretch_margin_top = 16
+stretch_margin_right = 16
+stretch_margin_bottom = 16
+texture_under = ExtResource("7_aclp7")
+texture_over = ExtResource("8_oyc4q")
+texture_progress = ExtResource("9_0ek62")
+script = ExtResource("10_i044d")
+
+[node name="GameOverScreen" type="Control" parent="UserInterface" unique_id=1334248310]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="." unique_id=787991170]
+stream = SubResource("AudioStreamInteractive_yl4s6")
+autoplay = true
+bus = &"Music"
+
+[node name="CrabEnemy" parent="." unique_id=762200399 instance=ExtResource("13_nbct8")]
+y_sort_enabled = true
+position = Vector2(32, 232)
