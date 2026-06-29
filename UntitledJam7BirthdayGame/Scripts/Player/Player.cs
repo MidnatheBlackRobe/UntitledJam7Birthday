@@ -85,7 +85,6 @@ public partial class Player : CharacterBody2D
 	private const float DAMAGE_TIME = 0.25f;
 	private float health = MAX_HEALTH;
 	public Action<float> healthChanged;
-	public Action isDead;
 
 	private void Damage(Vector2 position)
 	{
@@ -96,12 +95,28 @@ public partial class Player : CharacterBody2D
 	{
 		health -= HEALTH_STEP;
 		healthChanged?.Invoke(health);
-		if (health <= 0) isDead?.Invoke();
+		if (health <= 0)
+		{
+			_ = OnDeath();
+			return;
+		}
 		SetState("Hit");
 		Vector2 knockback = (Position - position).Normalized() * DAMAGE_KNOCKBACK;
 		Velocity = knockback;
 		await ToSignal(GetTree().CreateTimer(DAMAGE_TIME), SceneTreeTimer.SignalName.Timeout);
 		SetState("Idle");
+	}
+
+	private const float DEATH_TIME = 1.28f;
+	public Action playerDied;
+
+	public async Task OnDeath()
+	{
+		SetState("Death");
+		await ToSignal(GetTree().CreateTimer(DEATH_TIME), SceneTreeTimer.SignalName.Timeout);
+		playerDied?.Invoke();
+		Hide();
+		ProcessMode = ProcessModeEnum.Disabled;
 	}
 
 	public async Task Attack()

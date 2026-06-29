@@ -540,7 +540,7 @@ playerHurtBox = NodePath("HurtBox")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=434648724]
 position = Vector2(0, 17)
 sprite_frames = SubResource("SpriteFrames_w2yo7")
-animation = &"Down_Idle"
+animation = &"Death"
 autoplay = "Down_Idle"
 offset = Vector2(0, -48)
 script = ExtResource("3_dewec")

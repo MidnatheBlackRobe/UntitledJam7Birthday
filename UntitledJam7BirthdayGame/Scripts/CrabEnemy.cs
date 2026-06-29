@@ -131,9 +131,9 @@ public partial class CrabEnemy : RigidBody2D
 	public async Task OnDeath()
 	{
 		hitBox.ProcessMode = ProcessModeEnum.Disabled;
-		crabDied?.Invoke();
 		SetState("Death");
 		await ToSignal(GetTree().CreateTimer(DEATH_TIME), SceneTreeTimer.SignalName.Timeout);
+		crabDied?.Invoke();
 		Hide();
 		ProcessMode = ProcessModeEnum.Disabled;
 	}
